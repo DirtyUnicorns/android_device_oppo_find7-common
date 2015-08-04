@@ -21,6 +21,9 @@
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3 androidboot.bootdevice=msm_sdcc.1
 TARGET_KERNEL_CONFIG := unicornblood_find7_defconfig
 
+# Charger
+BOARD_CHARGER_SHOW_PERCENTAGE := true
+
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oppo/find7-common/bluetooth
 
