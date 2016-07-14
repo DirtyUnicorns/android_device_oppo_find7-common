@@ -51,8 +51,16 @@ TARGET_INIT_VENDOR_LIB := libinit_find7
 # Properties
 TARGET_SYSTEM_PROP += device/oppo/find7-common/system.prop
 
-# Recovery
-TARGET_RECOVERY_FSTAB := device/oppo/find7-common/rootdir/etc/fstab.qcom
+#-include device/qcom/sepolicy/sepolicy.mk
+
+# MUST NOT USE LOCAL_PATH
+#BOARD_SEPOLICY_DIRS += device/oppo/find7-common/sepolicy
+
+#TODO: Need to determine just how this is used.  There's a slight
+#chance this could cause some small issues on LVM configs
+#but overall, TWRP doesn't use this and the rest of the build system
+#does
+TARGET_RECOVERY_FSTAB := device/oppo/find7-common/rootdir/etc/fstab.qcom.std
 
 # Inherit from the proprietary version
 -include vendor/oppo/find7-common/BoardConfigVendor.mk

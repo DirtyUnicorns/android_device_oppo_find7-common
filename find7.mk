@@ -19,7 +19,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.qcom \
+    fstab.qcom.std \
+    fstab.qcom.lvm \
     init.qcom.rc \
     init.qcom.usb.rc
 
@@ -28,6 +29,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/mixer_paths.xml:system/etc/mixer_paths.xml
+
+# LVM
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/lvm/lvm_init.sh:root/lvm_init.sh \
+    $(LOCAL_PATH)/lvm/lvm_init_recovery.sh:recovery/root/sbin/lvm_init_recovery.sh \
+    $(LOCAL_PATH)/lvm/lvm_setprop.sh:root/lvm_setprop.sh \
+    $(LOCAL_PATH)/lvm/lvm:root/sbin/lvm \
+    $(LOCAL_PATH)/lvm/lvm.conf:root/lvm/etc/lvm.conf
 
 # Camera
 PRODUCT_PACKAGES += \
